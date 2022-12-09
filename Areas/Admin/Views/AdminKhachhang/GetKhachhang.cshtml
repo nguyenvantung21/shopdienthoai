@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ShopPhone.Models.Khachhang>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-wrapper-before"></div>
+        <div class="content-header row">
+            <div class="content-header-left col-md-4 col-12 mb-2">
+                <h3 class="content-header-title">Tables</h3>
+            </div>
+            <div class="content-header-right col-md-8 col-12">
+                <div class="breadcrumbs-top float-md-right">
+                    <div class="breadcrumb-wrapper mr-1">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Tables
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <!-- Basic Tables start -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Danh sách khách hàng:</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã khách hàng</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Tài khoản</th>
+                                                <th>Mật khẩu</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Email</th>
+                                                <th>Chức năng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@item.MaKhachHang</th>
+                                                    <td>@item.TenKhachHang</td>
+                                                    <td>@item.TaiKhoanKh</td>
+                                                    <td>@item.MatKhau</td>
+                                                    <td>@item.Sdt</td>
+                                                    <td>@item.DiaChi</td>
+                                                    <td>@item.Email</td>
+                                                    <td>
+                                                        <a asp-route-id="@item.MaKhachHang">
+                                                            @Html.ActionLink("Edit", "EditKH")
+                                                        </a>
+                                                            
+                                                        
+                                                        @*<a asp-action="EditKH" asp-controller="AdminKhachhang" asp-area="Admin" asp-route-id="@item.MaKhachHang">Edit</a> |*@
+                                                        <a asp-action="DeleteKH" asp-controller="AdminKhachhang" asp-area="Admin" asp-route-id="@item.MaKhachHang">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @Html.Raw(TempData["msgdelete"])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

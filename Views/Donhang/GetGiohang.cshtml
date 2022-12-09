@@ -1,0 +1,131 @@
+﻿@model List<ShopPhone.Models.Giohang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double Tong = 0;
+}
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style type="text/css">
+        body h2 {
+            margin-top: 100px;
+        }
+
+        .table > tbody > tr > td, .table > tfoot > tr > td {
+            vertical-align: middle;
+        }
+
+        @@media screen and (max-width: 600px) {
+            table #cart tbody td .form-control {
+                width: 20%;
+                display: inline !important;
+            }
+
+            .actions .btn {
+                width: 36%;
+                margin: 1.5em 0;
+            }
+
+            .actions .btn-info {
+                float: left;
+            }
+
+            .actions .btn-danger {
+                float: right;
+            }
+
+            table#cart thead {
+                display: none;
+            }
+
+            table#cart tbody td {
+                display: block;
+                padding: .6rem;
+                min-width: 320px;
+            }
+
+            table#cart tbody tr td:first-child {
+                background: #333;
+                color: #fff;
+            }
+
+            table#cart tbody td:before {
+                content: attr(data-th);
+                font-weight: bold;
+                display: inline-block;
+                width: 8rem;
+            }
+
+            table#cart tfoot td {
+                display: block;
+            }
+
+                table#cart tfoot td .btn {
+                    display: block;
+                }
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2 class="text-center">Thông tin giỏ hàng</h2>
+    <div class="container">
+        <table id="cart" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:50%">Tên sản phẩm</th>
+                    <th style="width:10%">Giá</th>
+                    <th style="width:8%">Số lượng</th>
+                    <th style="width:22%" class="text-center">Thành tiền</th>
+                    <th style="width:10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    Tong += item.Thanhtien();
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs">
+                                    <img src="/images/@item.anh" width="100" class="img-responsive" />
+                                </div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">@item.tensp</h4>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">@String.Format("{0:0,0}", item.dongia) đ</td>
+                        <td data-th="Quantity"><input type="number" class="form-control text-center" value="@item.soluong"></td>
+                        <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dongia * item.soluong) đ</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            <tfoot>
+                <tr class="visible-xs">
+                    <td class="text-center"><strong>Tổng 200.000 đ</strong></td>
+                </tr>
+                <tr>
+                    <td><a href="@Url.Action("Index", "Sanphams")" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><strong>@String.Format("{0:0,0}", Tong) đ</strong></td>
+                    <td><a href="@Url.Action("DatHang", "Donhang")" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

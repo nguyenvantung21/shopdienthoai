@@ -1,0 +1,38 @@
+﻿@model ShopPhone.Models.Sanpham
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="brand">
+    <div class="container">
+
+    </div>
+    <div class="brand-bg" style="text-align:center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                    <div class="brand_box">
+                        <span style="font-size: 1.17em; margin:10px">
+                            <b>Thông tin chi tiết sản phẩm</b>
+                        </span>
+                        <img src="/images/@Model.Anh" alt="img" />
+                        <span>Tên sản phẩm: @Model.TenSanPham</span>
+                        <span>Mã sản phẩm: @Model.MaSanPham</span>
+                        <span>Hãng sản xuất: @Model.MaDanhMucNavigation.TenDanhMuc</span>
+                        <span>Mô tả: @Model.MoTa</span>
+                        <i><img src="/images/star.png" /></i>
+                        <i><img src="/images/star.png" /></i>
+                        <i><img src="/images/star.png" /></i>
+                        <i><img src="/images/star.png" /></i>
+                        <h4>Giá: <strong class="red">">@String.Format("{0:0,0}", Model.GiaTien)  VND</strong></h4>
+                        <div class="col-md-12">
+                            <a class="read-more">Mua hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

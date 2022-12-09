@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ShopPhone.Models.Sanpham>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="brand">
+    <div class="container">
+        </div>
+    <div class="brand-bg">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <a class="im" href="@Url.Action("Details","Sanphams", new { id = item.MaSanPham })">
+                                <img src="/images/@item.Anh" alt="img" style="height:200px;width:auto" />
+                            </a>
+                            <span>@item.TenSanPham</span>
+                            <span>@item.MoTa</span>
+                            <i><img src="/images/star.png" /></i>
+                            <i><img src="/images/star.png" /></i>
+                            <i><img src="/images/star.png" /></i>
+                            <i><img src="/images/star.png" /></i>
+                            <h3>Giá: <strong class="red">@String.Format("{0:0,0}", item.GiaTien)  VND</strong></h3>
+                            <div class="col-md-12">
+                                <a class="read-more" asp-action="ThemGioHang" asp-controller="Donhang" asp-route-id="@item.MaSanPham">Mua hàng </a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>

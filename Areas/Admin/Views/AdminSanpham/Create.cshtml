@@ -1,0 +1,102 @@
+﻿@model ShopPhone.Areas.Admin.Models.SpViewModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-wrapper-before"></div>
+        <div class="content-header row">
+            <div class="content-header-left col-md-4 col-12 mb-2">
+                <h3 class="content-header-title">Tables</h3>
+            </div>
+            <div class="content-header-right col-md-8 col-12">
+                <div class="breadcrumbs-top float-md-right">
+                    <div class="breadcrumb-wrapper mr-1">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Tables
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <!-- Basic Tables start -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Thêm mới sản phẩm:</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <form action="Create" method="post" enctype="multipart/form-data">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.TenSanPham" class="control-label">Tên sản phẩm</label>
+                                                <input asp-for="sp.TenSanPham" class="form-control" />
+                                                <span asp-validation-for="sp.TenSanPham" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.Anh" class="control-label">Ảnh</label>
+                                                <input type="file" asp-for="sp.Anh" class="form-control" name="fileUpload" />
+                                                <span asp-validation-for="sp.Anh" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.MoTa" class="control-label">Mô tả</label>
+                                                <input asp-for="sp.MoTa" class="form-control" />
+                                                <span asp-validation-for="sp.MoTa" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.GiaTien" class="control-label">Giá tiền</label>
+                                                <input asp-for="sp.GiaTien" class="form-control" />
+                                                <span asp-validation-for="sp.GiaTien" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.SoLuong" class="control-label">Số lượng</label>
+                                                <input asp-for="sp.SoLuong" class="form-control" />
+                                                <span asp-validation-for="sp.SoLuong" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="sp.MaDanhMuc" class="control-label">Hãng sản xuất</label>
+                                                <select asp-for="sp.MaDanhMuc" class="form-control" asp-items="@Model.Danhmuc">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Create" class="btn btn-primary" @*href="@Url.Action("Create","Admin", new { Area="Admin"})"*@ />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <a asp-action="GetSanPham">Quay lại</a>
+                                </div>
+                                @Html.Raw(TempData["msgcreate"])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\aaa\css\bootstrap.css" />
+    <None Include="wwwroot\aaa\css\responsive.css" />
+    <None Include="wwwroot\aaa\css\style.css" />
+    <None Include="wwwroot\aaa\css\style.css.map" />
+    <None Include="wwwroot\aaa\css\style.scss" />
+    <None Include="wwwroot\aaa\fonts\ethnocentric\ethnocentric rg it.ttf" />
+    <None Include="wwwroot\aaa\fonts\ethnocentric\ethnocentric rg.ttf" />
+    <None Include="wwwroot\aaa\fonts\ethnocentric\read-this.html" />
+    <None Include="wwwroot\aaa\fonts\ethnocentric\typodermic-eula-02-2014.pdf" />
+    <None Include="wwwroot\aaa\fonts\Poppins\OFL.txt" />
+    <None Include="wwwroot\aaa\fonts\Poppins\Poppins-Bold.ttf" />
+    <None Include="wwwroot\aaa\fonts\Poppins\Poppins-Regular.ttf" />
+    <None Include="wwwroot\aaa\images\about-1.png" />
+    <None Include="wwwroot\aaa\images\about-2.png" />
+    <None Include="wwwroot\aaa\images\about-img.png" />
+    <None Include="wwwroot\aaa\images\arrangement.jpg" />
+    <None Include="wwwroot\aaa\images\cart.png" />
+    <None Include="wwwroot\aaa\images\client-1.png" />
+    <None Include="wwwroot\aaa\images\client-2.png" />
+    <None Include="wwwroot\aaa\images\envelope-white.png" />
+    <None Include="wwwroot\aaa\images\flower.png" />
+    <None Include="wwwroot\aaa\images\flowers.png" />
+    <None Include="wwwroot\aaa\images\g-1.jpg" />
+    <None Include="wwwroot\aaa\images\g-2.jpg" />
+    <None Include="wwwroot\aaa\images\g-3.jpg" />
+    <None Include="wwwroot\aaa\images\g-4.jpg" />
+    <None Include="wwwroot\aaa\images\g-5.jpg" />
+    <None Include="wwwroot\aaa\images\g-6.jpg" />
+    <None Include="wwwroot\aaa\images\g-7.jpg" />
+    <None Include="wwwroot\aaa\images\g-8.jpg" />
+    <None Include="wwwroot\aaa\images\hero.png" />
+    <None Include="wwwroot\aaa\images\insta-1.png" />
+    <None Include="wwwroot\aaa\images\insta-2.png" />
+    <None Include="wwwroot\aaa\images\insta-3.png" />
+    <None Include="wwwroot\aaa\images\insta-4.png" />
+    <None Include="wwwroot\aaa\images\insta-5.png" />
+    <None Include="wwwroot\aaa\images\insta-6.png" />
+    <None Include="wwwroot\aaa\images\location-white.png" />
+    <None Include="wwwroot\aaa\images\menu.png" />
+    <None Include="wwwroot\aaa\images\next.png" />
+    <None Include="wwwroot\aaa\images\play.png" />
+    <None Include="wwwroot\aaa\images\prev.png" />
+    <None Include="wwwroot\aaa\images\rose.png" />
+    <None Include="wwwroot\aaa\images\search-icon.png" />
+    <None Include="wwwroot\aaa\images\telephone-white.png" />
+    <None Include="wwwroot\aaa\images\tulip.png" />
+    <None Include="wwwroot\aaa\images\why-bg.jpg" />
+    <None Include="wwwroot\aaa\js\bootstrap.js" />
+    <None Include="wwwroot\aaa\js\custom.js" />
+    <None Include="wwwroot\aaa\js\jquery-3.4.1.min.js" />
+  </ItemGroup>
+
+</Project>
